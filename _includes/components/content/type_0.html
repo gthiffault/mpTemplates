@@ -1,0 +1,17 @@
+{# DECLARATION #}
+    {% set title    = "" %}
+    {% set content  = "" %} 
+{# ASIGNATION #}
+    {% set title    = entry.content1Title %}
+    {% set content  = entry.content1Text %}
+{# CODE #}
+    {% if entry.content1Title or entry.content1Text %}
+        <section class="o-section c-content">
+        	<div class="o-wrapper">
+        		<div class="o-wrap">
+                    {% if title %}<h2 data-title="{{title}}" class="c-data">{{title}}</h2>{% endif %}
+        	       {{content}}
+        	   </div>
+        	</div>
+        </section>
+    {% endif %}

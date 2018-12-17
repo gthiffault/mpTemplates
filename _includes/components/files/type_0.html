@@ -1,0 +1,22 @@
+{% set files = entry.pageFiles.all() %}
+
+{% if files|length %}
+
+<section class="o-section c-files">
+	<div class="o-wrapper">
+		<div class="o-wrap">
+			<div class="c-files_wrap">
+				<h2>À consulter</h2>
+				
+				<ul class="o-list-bare c-files_ul">
+		    		{% nav file in files %}
+		        		<li>
+		        			<a href="{{file.url()}}" target="_blank">{{file.title}}</a>
+		        		</li>
+		    		{% endnav %}
+				</ul>				
+			</div>
+		</div>
+	</div>
+</section>
+{% endif %}

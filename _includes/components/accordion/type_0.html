@@ -1,0 +1,67 @@
+{# DECLARATION #}
+	{% set program = "" %}
+{# ASIGNATION #}
+	{% set program = craft.entries.section('availablePositions').all() %}
+{# CODE #}
+
+	<section class="o-section c-accordion">
+		<div class="o-wrapper">
+			<div class="o-wrap">
+				{% if entry.accordionTitle|length %}
+				<h2 data-title="{{entry.accordionTitle}}" class="c-data">{{entry.accordionTitle}}</h2>
+				{% endif %}
+				<ul class="c-accordion_main-ul">
+					{% for depthZero in entry.accordionv2.all() %}
+						{# DECLARATION #}
+							{% set title 			= depthZero.accordionTitle%}
+						{# ASIGNATION #}
+								{% set depthOneMatrix 	= depthZero.accordionTab %}	
+						{# CODE #}
+							<li>
+								<div class="c-accordion_clickable"> 
+									<h3>{{title}}</h3>
+									<div class="c-accordion_status"></div>
+								</div>
+								{% if depthOneMatrix|length %}
+									<div class="c-accordion_hide">
+										{% for depthOne in depthOneMatrix %}
+											{# DECLARATION #}
+												{% set title 			= "" %}
+												{% set scenarioZero 	= "" %}
+												{% set scenarioOne 		= "" %}
+											{# ASIGNATION #}
+												{% set title = depthOne.accordionTitle %}
+												{% set scenarioZero 	= "accordionBlocA" %}
+												{% set scenarioOne 		= "accordionBlocB" %}
+											{# CODE #}
+					    						{% if depthOne.type == scenarioZero %}
+													{# DECLARATION #}
+														{% set title 		= "" %}
+														{% set content = "" %}
+													{# ASIGNATION #}
+														{% set title = depthOne.accordionBlocAContent %}
+														{% set content = depthOne.accordionBlocABullet %}
+													{# CODE #}
+						        						<h4>{{title}}</h4>
+						        						<div class="c-content">
+						        							{{content}}
+						        						</div>
+					        					{% elseif depthOne.type == scenarioOne %}
+													{# DECLARATION #}
+														{% set content = "" %}
+													{# ASIGNATION #}
+														{% set content = depthOne.accordionBlocBBullet %}
+													{# CODE #}		        					
+							        					<div class="c-custom-bullet-list">
+							        						{{content}}
+							        					</div>
+					    						{% endif %}
+										{% endfor %}
+									</div>
+								{% endif %}
+							</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</section>

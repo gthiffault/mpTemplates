@@ -1,0 +1,7 @@
+{% extends "_layout/site" %}
+    {% block content %}
+    	{% include "_includes/components/activities/activities_single_info" %}
+    	{% include "_includes/components/content/type-0_activities" %}
+      	{% include "_includes/components/activities/activities_single" %}
+        {% include "_includes/components/form/form" with {templateForm: 'form-activities'} %}
+    {% endblock %}

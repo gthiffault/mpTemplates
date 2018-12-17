@@ -1,0 +1,42 @@
+{# DECLARATION #}
+	{% set program = "" %}
+{# ASIGNATION #}
+	{% set program = craft.entries.section('availablePositions').all() %}
+{# CODE #}
+<section class="o-section c-job-information">
+	<div class="o-wrapper">
+		<div class="o-wrap">
+			<h1 data-title="{{entry.title}}" class="c-page_title c-data">{{entry.title}}</h1>
+			<div class="c-job-information_div">
+				<h3>Descsription du poste</h3>
+				<ul class="o-list-bare c-job-information_ul">
+				<li><span>Date d'entrée en fonction :</span> {{entry.jobDateEntry}}</li>
+				<li><span>Nombre de poste(s) à combler :</span> {{entry.jobNumberJobs}}</li>
+				<li><span>Salaire :</span> {{entry.jobSalary}}</li>
+				<li><span>Horaire de travail :</span> {{entry.jobWorTimetable}}</li>
+				<li><span>Statut de l'emploi :</span> {{entry.jobEmploymentStatus}}</li>
+				<li><span>Quart de travail :</span> {{entry.jobShift}}</li>
+				</ul>
+			</div>
+			<div class="c-job-information_div -content">						
+				<h3>Responsabilités</h3>
+				{{entry.jobResponsabilities}}
+			</div>
+			<div class="c-job-information_div">						
+				<h3>Exigences</h3>
+				<ul class="o-list-bare c-job-information_ul">
+				<li><span>Date d'entrée en fonction :</span> {{entry.jobDateEntry}}</li>
+				<li><span>Nombre de poste(s) à combler :</span> {{entry.jobNumberJobs}}</li>
+				<li><span>Salaire :</span> {{entry.jobSalary}}</li>				
+				</ul>		
+				<div class="-content">
+				{{entry.jobRequirements}}
+				</div>
+			</div>		
+			<div class="c-job-information_div -content">						
+				<h3>Compétences recherchées</h3>
+				{{entry.jobSkillSought}}
+			</div>
+		</div>
+	</div>
+</section>

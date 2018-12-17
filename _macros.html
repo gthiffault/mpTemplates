@@ -1,0 +1,3 @@
+{% macro isActive(slug)%}
+{%if slug|kebab in craft.app.request.segments %}class="c-current-page"{% else %}{% endif %}
+{% endmacro %}

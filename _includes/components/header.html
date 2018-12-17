@@ -1,0 +1,128 @@
+
+{# DECLARATION #}
+	{% set menuMain = "" %}
+	{% set menuSecondary = "" %}	
+	{% set logo		= "" %}
+{# ASIGNATION #}
+	{% set menuMain = craft.entries.section('menuMain').all() %}
+	{% set menuSecondary = craft.entries.section('menuSecondary').all() %}
+	{% set logo		= craft.app.sites.primarySite.baseUrl  ~ "assets/images/logos/logo.png" %}
+	{% set logoFooter		= craft.app.sites.primarySite.baseUrl  ~ "assets/images/logos/logo-blanc.png" %}
+	{% import "_macros.html" as macros %}
+{# CODE #}
+	<header class="c-header c-mg">
+		<div class="c-header_nav">
+			<div class="c-header_nav_secondary">
+				<div class="o-wrapper">
+					<ul class="o-list-bare c-header_nav_secondary_ul">
+				    	{% nav entry in menuSecondary %}
+				        	<li {{macros.isActive(entry.slug)}}>
+				            	<a href="{{ entry.menuLink.getUrl() }}">{{ entry.title }}</a>
+				        	</li>
+				    	{% endnav %}
+					</ul>
+				</div>
+			</div>						
+			<div class="c-header_nav_main">
+				<div class="o-wrapper">
+					<div class="c-flex">
+						<div class="c-flex_item -logo">
+							<a href="{{siteUrl}}"><img class="c-header_nav_main_logo" src="{{logo}}" alt="Maison Painchaud"></a>
+						</div>
+						<div class="c-flex_item -menu">
+							<ul class="o-list-bare c-header_nav_main_ul">
+							    {% nav entry in menuMain %}
+					        		
+					        			{% if entry.menuLink|length%}
+					            			<li {{macros.isActive(entry.slug)}}><a href="{{ entry.menuLink.getUrl() }}">{{ entry.title }}</a>
+					            		{% else %}
+					            			<li class="c-parent_li"><p class="c-parent">{{ entry.title }}</p>
+					            		{% endif %}
+					            		{% ifchildren %}
+					                		<ul class="c-submenu">
+					                    		{% children %}
+					                		</ul>
+					            		{% endifchildren %}
+					        		</li>
+					    		{% endnav %}
+							</ul>
+							<button class="hamburger hamburger--collapse" type="button">
+							  <span class="hamburger-box">
+							    <span class="hamburger-inner"></span>
+							  </span>
+							</button>						
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+		<div class="c-header_banner">
+			<div class="o-wrapper">
+				{%if entry is defined%}
+					{%if entry.type == "home"%}
+						<div class="c-header_banner_home" style="background: url('{{entry.bannerImage.one().url('bannerHome')}}')">
+					{% else %}		
+						{% if entry.bannerImage|length%}
+							<div class="c-header_banner_page" style="background: url('{{entry.bannerImage.one().url('bannerPage')}}')">
+						{% else %}		
+							<div class="c-header_banner_page" style="background: url('{{global.defaultImage.one().url('bannerPage')}}')">
+						{% endif %}
+					{% endif %}
+				{% elseif category is defined%}
+					<div class="c-header_banner_page" style="background: url('{{global.defaultImage.one().url('bannerPage')}}')">
+				{% endif %}
+
+					<div class="c-header_banner_content">
+						{%if entry is defined%}
+							{%if entry.type == "home"%}
+								<p class="c-header_banner_title">{{entry.bannerTitleLineOne}}
+								<br>{{entry.bannerTitleLineTwo}}</p>
+								<p class="c-header_banner_subtitle">{{ craft.app.sites.primarySite.name }}</p>
+							{% elseif entry.type == "programmatonServices" %}
+								<p class="c-header_banner_subtitle">Programmes et services</p>
+								<h1>{{entry.title}}</h1>
+							{% elseif entry.type == "availablePositions" %}			
+								<h2 class="c-section_title">{{'Carrières'|t}}</h2>	
+							{% elseif entry.type == "activities" %}						
+								<h2 class="c-section_title">{{'Activités'|t}}</h2>
+							{% else %}
+								<h1>{{entry.title}}</h1>
+							{% endif %}
+						{% elseif category is defined%}
+							<h2 class="c-section_title">{{'Activités'|t}}</h2>
+						{% endif %}							
+					</div>
+				
+				</div>
+			</div>
+		</div>
+		<div class="c-header_nav_mobile">
+			<div class="o-wrapper">
+				<ul class="o-list-bare c-header_mobile_main_ul">
+				    {% nav entry in menuMain %}
+		        		
+		        			{% if entry.menuLink|length%}
+		            			<li {{macros.isActive(entry.slug)}}><a href="{{ entry.menuLink.getUrl() }}">{{ entry.title }}</a>
+		            		{% else %}
+		            			<li class="c-parent_li"><p class="c-parent">{{ entry.title }}</p>
+		            		{% endif %}
+		            		{% ifchildren %}
+		                		<ul class="c-submenu">
+		                    		{% children %}
+		                		</ul>
+		            		{% endifchildren %}
+		        		</li>
+		    		{% endnav %}
+				</ul>
+					<ul class="o-list-bare c-header_mobile_secondary_ul">
+				    	{% nav entry in menuSecondary %}
+				        	<li {{macros.isActive(entry.slug)}}>
+				            	<a href="{{ entry.menuLink.getUrl() }}">{{ entry.title }}</a>
+				        	</li>
+				    	{% endnav %}
+					</ul>				
+			</div>
+		</div>
+	</header>
+
+<div id="my-store-1474943b-c6c2-2e92-ef4d-b81f355d60ce"></div><div> <script type="text/javascript" data-cfasync="false" src="https://app.ecwid.com/script.js?1474943b-c6c2-2e92-ef4d-b81f355d60ce" charset="utf-8"></script><script type="text/javascript"> xProductBrowser("id=my-store-1474943b-c6c2-2e92-ef4d-b81f355d60ce");</script></div>

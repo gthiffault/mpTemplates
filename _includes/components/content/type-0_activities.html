@@ -1,0 +1,15 @@
+{# DECLARATION #}
+	{% set title 	= "" %}
+	{% set content 	= "" %}	
+{# ASIGNATION #}
+	{% set title 	= entry.title %}
+	{% set content 	= entry.content1Text %}
+{# CODE #}
+    <section class="o-section c-content">
+    	<div class="o-wrapper">
+    		<div class="o-wrap">
+    	    	<h1 data-title="{{title}}" class="c-page_title c-data">{{title}}</h1>
+    			{{content}}
+    		</div>
+    	</div>
+    </section>

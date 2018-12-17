@@ -1,0 +1,157 @@
+{# DECLARATION #}
+	{% set activities = "" %}
+{# ASIGNATION #}
+	
+{# CODE #}
+{% if entry is defined %}
+{% if pages == "Activities" %}
+	{% paginate craft.entries.section('activities').limit(4).orderBy('activitiesDate desc') as pageInfo, pageEntries %}
+	<section class="o-section c-activities">
+		<div class="o-wrapper">
+			<div class="o-wrap">
+
+{% set allEntries = craft.entries.section('activities').all() %}
+{% set categoriesInUse = craft.categories.relatedTo(allEntries) %}
+{% include "_includes/components/activities/activities_filter" %}
+
+			<ul class="o-layout o-layout--custom-two c-activities_ul">
+			    {% nav entry in pageEntries %}
+					{# DECLARATION #}
+						{% set image = "" %}	
+					{# ASIGNATION #}
+						{% set image = entry.imageThumbnail.one() %}
+					{# CODE #}
+		        		<li class="o-layout__item u-1/2@portrait-large-tablet">
+		        			<figure>
+		        				<div class="c-activities_image">
+			        			<img src="{{image.url('activities')}}" alt="{{image.title}}">
+			        			</div>
+			        			<figcaption>
+			        				<p class="c-activities_info">{{entry.activitiesCategories.one().title}} - {{entry.activitiesDate|date('j F Y')}}</p>
+			            			<a class="c-activities_title" href="{{entry.url}}">{{ entry.title[:80] }}</a>
+			            			<div class="c-activities_link_box"><a class="c-activities_link" href="{{entry.url}}"></a></div>
+			            		</figcaption>
+							</figure>
+		        		</li>
+	    		{% endnav %}
+			</ul>		
+
+
+
+
+
+<ul class="o-list-bare c-pagination_ul">
+{% for page, url in pageInfo.getPrevUrls(5) %}
+    <li><a class="c-pagination" href="{{ url }}">{{ page }}</a></li>
+{% endfor %}
+
+<li><span class="c-pagination current">{{ pageInfo.currentPage }}</span></li>
+
+{% for page, url in pageInfo.getNextUrls(5) %}
+    <li><a class="c-pagination" href="{{ url }}">{{ page }}</a></li>
+{% endfor %}
+</ul>
+		</div>
+		</div>
+	</section>
+
+{% else %}
+{% set activities = craft.entries.section('activities').orderBy('activitiesDate asc').all() %}
+
+{% set bool 	= false %}
+{% set Count 	= 0 %}
+
+
+				    {% nav entry in activities %}
+						{% if entry.activitiesDate|date('U') > now|date('U') %}
+{% set bool = true %}
+						{% endif %}
+					{% endnav %}
+{% if bool == true %}
+	<section class="o-section c-activities">
+		<div class="o-wrapper">
+			<div class="o-wrap">
+				<h2 data-title="Restez à l'affût de nos activités" class="c-data">Restez à l'affût de nos activités</h2>
+				<ul class="o-layout o-layout--custom-two c-activities_ul">
+				    {% nav entry in activities %}
+						{% if entry.activitiesDate|date('U') > now|date('U') %}
+						{% if Count < 3 %}
+							{# DECLARATION #}
+								{% set image = "" %}	
+							{# ASIGNATION #}
+								{% set image = entry.imageThumbnail.one() %}
+							{# CODE #}
+				        		<li class="o-layout__item u-1/2@portrait-large-tablet">
+				        			<figure>
+				        				<div class="c-activities_image">
+					        			<img src="{{image.url('activities')}}" alt="{{image.title}}">
+					        			</div>
+					        			<figcaption>
+					        				<p class="c-activities_info">{{entry.activitiesCategories.one().title}} - {{entry.activitiesDate|date('j F Y')}}</p>
+					            			<a class="c-activities_title" href="{{entry.url}}">{{ entry.title[:80] }}</a>
+					            			<div class="c-activities_link_box"><a class="c-activities_link" href="{{entry.url}}"></a></div>
+					            		</figcaption>
+									</figure>
+				        		</li>
+			        	{% endif %}
+			        	{% endif %}
+			        	{% set Count 	= Count + 1 %}
+		    		{% endnav %}
+				</ul>		
+							<a class="c-btn c-btn--secondary">Voir le calendrier</a>
+			</div>
+		</div>
+	</section>
+	{% endif %}
+{% endif %}
+{% elseif category is defined %}
+
+{# Fetch all of the entries related to this category #}
+{% paginate craft.entries.relatedTo(category).limit(4).orderBy('activitiesDate desc') as pageInfo, pageEntries %}
+
+	<section class="o-section c-activities">
+		<div class="o-wrapper">
+			<div class="o-wrap">
+
+{% include "_includes/components/activities/activities_filter" %}
+			<ul class="o-layout o-layout--custom-two c-activities_ul">
+			    {% nav entry in pageEntries %}
+					{# DECLARATION #}
+						{% set image = "" %}	
+					{# ASIGNATION #}
+						{% set image = entry.imageThumbnail.one() %}
+					{# CODE #}
+		        		<li class="o-layout__item u-1/2@portrait-large-tablet">
+		        			<figure>
+		        				<div class="c-activities_image">
+			        			<img src="{{image.url('activities')}}" alt="{{image.title}}">
+			        			</div>
+			        			<figcaption>
+			        				<p class="c-activities_info">{{entry.activitiesCategories.one().title}} - {{entry.activitiesDate|date('j F Y')}}</p>
+			            			<a class="c-activities_title" href="{{entry.url}}">{{ entry.title[:80] }}</a>
+			            			<div class="c-activities_link_box"><a class="c-activities_link" href="{{entry.url}}"></a></div>
+			            		</figcaption>
+							</figure>
+		        		</li>
+	    		{% endnav %}
+			</ul>		
+
+
+
+
+
+<ul class="o-list-bare c-pagination_ul">
+{% for page, url in pageInfo.getPrevUrls(5) %}
+    <li><a class="c-pagination" href="{{ url }}">{{ page }}</a></li>
+{% endfor %}
+
+<li><span class="c-pagination current">{{ pageInfo.currentPage }}</span></li>
+
+{% for page, url in pageInfo.getNextUrls(5) %}
+    <li><a class="c-pagination" href="{{ url }}">{{ page }}</a></li>
+{% endfor %}
+</ul>
+		</div>
+		</div>
+	</section>
+{% endif %}

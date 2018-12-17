@@ -1,0 +1,7 @@
+{% extends "_layout/site" %}
+    {% block content %}
+        {% include "_includes/components/content/ctt" %}
+        {% include "_includes/components/list/list-program" %}
+        {% include "_includes/components/list/news-list" with {pages:'home'} %}
+        {% include "_includes/components/partners" %}
+    {% endblock %}

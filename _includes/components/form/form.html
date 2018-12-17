@@ -1,0 +1,21 @@
+<section class="o-section c-form -career">
+	<div class="o-wrapper">
+		<div class="o-wrap">
+			<div class="c-form_wrap">
+				<div class="u-3/5@landscape-medium-tablet u-4/5@portrait-large-handset">
+					{% if templateForm is defined %}
+						{% set template = templateForm %}
+						{% include "_includes/components/form/" ~ template %}
+					{% endif %}
+				</div>
+			</div>
+		{% if entry.type == "availablePositions" %}	
+			<img class="c-form_img" src="{{global.formCareerImage.one().url()}}">
+		{% elseif entry.type == "contactUs" %}	
+			<img class="c-form_img" src="{{global.formContactImage.one().url()}}">
+		{% elseif entry.type == "activities" %}	
+			<img class="c-form_img" src="{{global.formContactImage.one().url()}}">			
+		{% endif %}
+		</div>
+	</div>
+</section>

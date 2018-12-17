@@ -1,0 +1,27 @@
+{# DECLARATION #}
+	{% set program = "" %}
+{# ASIGNATION #}
+	{% set program = craft.entries.section('availablePositions').all() %}
+{# CODE #}
+<section class="o-section c-activities_single">
+	<div class="o-wrapper">
+		<div class="o-wrap">
+			<div class="c-activities_single_div">
+				<h3>Date</h3>
+				<p>{{entry.activitiesDate|date('j F Y')}}, de {{entry.activitiesDate|date('H')}} h {{entry.activitiesDate|date('i')}} à {{entry.activitiesEnd|date('H')}} h {{entry.activitiesEnd|date('i')}}
+				</div>
+			<div class="c-activities_single_div">
+				<h3>Lieu</h3>
+				<p>{{entry.activitiesPlace}}</p>
+			</div>
+			<div class="c-activities_single_div">
+				<h3>Coût</h3>
+				<p>{{entry.activitiesCost}}</p>
+			</div>
+			<div class="c-activities_single_div">
+				<h3>Pour plus de renseignements</h3>
+				{{entry.activitiesDetail}}
+			</div>
+		</div>
+	</div>
+</section>

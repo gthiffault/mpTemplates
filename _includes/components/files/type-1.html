@@ -1,0 +1,30 @@
+
+
+<section class="o-section c-files">
+	<div class="o-wrapper">
+		<div class="o-wrap">
+				{% for block in entry.pageFilesList.all() %}
+				    {% if block.type == "pageFilesListTab" %}
+				    
+			<h2 data-title="{{block.pageFilesListTitle}}" class="c-data">{{block.pageFilesListTitle}}</h2>
+
+{% set files = block.pageFilesListFiles.all() %}
+
+{% if files|length %}
+
+
+<div class="c-files_wrap">
+	<ul class="o-list-bare c-files_ul">
+		{% nav file in files %}
+			<li>
+				<a href="{{file.url()}}" target="_blank">{{file.title}}</a>
+			</li>
+		{% endnav %}
+	</ul>				
+</div>	
+{% endif %}			    
+					{% endif %}
+				{% endfor %}	
+		</div>
+	</div>
+</section>								

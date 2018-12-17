@@ -1,0 +1,47 @@
+{# DECLARATION #}
+	{% set address 		= "" %}
+	{% set phone 		= "" %}
+	{% set fax 			= "" %}
+	{% set email 		= "" %}
+
+	{% set OpAddress 	= "" %}
+	{% set OpPhone 		= "" %}
+	{% set OpFax 		= "" %}
+	{% set OpEmail 		= "" %}
+{# ASIGNATION #}
+	{% set address 		= global.globalAddress %}
+	{% set phone 		= global.globalPhone %}
+	{% set fax 			= global.globalFax %}
+	{% set email 		= global.globalMail %}
+
+	{% set OpAddress 	= global.globalOpenEnvironmentAddress %}
+	{% set OpPhone 		= global.globalOpenEnvironmentPhone %}
+	{% set OpFax 		= global.globalOpenEnvironmentFax %}
+	{% set OpEmail 		= global.globalOpenEnvironmentEmail %}
+{# CODE #}
+	<section class="o-section c-service-points">
+		<div class="o-wrapper">
+			<h2 data-title="Nos points de service" class="c-data">Nos points de service</h2>
+			<div class="o-layout">
+				<div class="o-layout__item c-content_first-column u-1/3@window-large u-2/5@landscape-large-tablet u-1/2@landscape-small-tablet">
+					<div class="c-service-points_list">
+					<h3>La maison Painchaud</h3>
+					{{address}}
+					<p>Téléphone : {{phone}}
+					<br>Télécopieur : {{fax}}</p>
+					<a href="mailto:{{email}}">{{email}}</a>				
+					</div>
+					<div class="c-service-points_list">
+					<h3>Suivi en milieu ouvert</h3>
+					{{OpAddress}}
+					<p>Téléphone : {{OpPhone}}
+					<br>Télécopieur : {{OpFax}}</p>
+					<a href="mailto:{{OpEmail}}">{{OpEmail}}</a>				
+					</div>				
+				</div>
+				<div class="o-layout__item u-2/3@window-large u-3/5@landscape-large-tablet u-1/2@landscape-small-tablet">
+					<div id="google_map"></div>
+				</div>
+			</div>
+		</div>
+	</section>

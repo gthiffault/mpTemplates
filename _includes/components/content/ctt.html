@@ -1,0 +1,30 @@
+
+{# DECLARATION #}
+
+	{% set title 	= "" %}
+	{% set content 	= "" %}	
+	{% set link		= "" %}
+{# ASIGNATION #}
+
+	{% set title 	= entry.cttTitle %}
+	{% set content 	= entry.cttContent %}
+	{% set link		= entry.cttLink %}
+{# CODE #}
+
+	<section class="o-section c-title-text c-mg">
+		<div class="o-wrapper">
+			<div class="o-wrap">
+			<div class="o-layout o-layout--middle">
+				<div class="o-layout__item c-content_first-column u-1/2@landscape-small-tablet">
+					<h2 data-title="{{title}}" class="c-data c-color-two">{{title}}</h2>
+				</div>
+				<div class="o-layout__item u-1/2@landscape-small-tablet">
+					<div class="c-title-text_content">
+					{{content}}
+					</div>
+					<a class="c-btn c-btn--primary" href="{{link.url()}}">{{link.text}}</a>
+				</div>	
+			</div>
+			</div>
+		</div>
+	</section>

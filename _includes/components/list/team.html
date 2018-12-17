@@ -1,0 +1,27 @@
+{# DECLARATION #}
+	{% set program = "" %}
+{# ASIGNATION #}
+	{% set program = craft.entries.section('availablePositions').all() %}
+{# CODE #}
+<section class="o-section c-team">
+	<div class="o-wrapper">
+		<div class="o-wrap">
+			<h2 data-title="{{entry.teamTitle}}" class="c-data">{{entry.teamTitle}}</h2>
+			<div class="c-team_content">
+				{{entry.teamContent}}
+			</div>
+			<ul class="o-layout o-layout--custom-four c-team_ul">
+				{% for block in entry.teamMember.all() %}
+				    {% if block.type == "teamMemberTab" %}
+						<li class="o-layout__item u-1/2@landscape-small-tablet">
+				        	<h3>{{ block.teamMemberName }}</h3>
+				        	<p class="c-team_role">{{block.teamMemberRole}}</p>
+				        	<p>{{global.globalPhone}}, poste {{block.teamMemberPhone}} <span class="c-team_pipe">|</span> {{block.teamMemberEmail}}</p>
+				        	{{block.teamMemberBio}}
+						</li>
+				    {% endif %}
+				{% endfor %}			
+			</ul>
+		</div>
+	</div>
+</section>

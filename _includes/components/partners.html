@@ -1,0 +1,27 @@
+{# DECLARATION #}
+	{% set partners = "" %}
+{# ASIGNATION #}
+	{% set partners = entry.partners.all() %}
+{# CODE #}
+	<section class="o-section c-partners">
+		<div class="o-wrapper">
+			<h2 data-title="Nos partenaires" class="c-data">Nos partenaires</h2>
+			<ul class="c-partners_ul">
+				{% for block in partners %}
+					{# DECLARATION #}
+						{% set tabOne = "" %}
+						{% set image = "" %}
+					{# ASIGNATION #}
+						{% set tabOne = "partnersTab" %}
+						{% set image = block.partnersLogo.one().url() %}
+					{# CODE #}
+						{% if block.type == tabOne %}
+							<li>
+								<img src="{{ image }}">
+							</li>
+						{% endif %}
+				{% endfor %}
+			</ul>
+			<div class="c-parners_dots"></div>
+		</div>
+	</section>
