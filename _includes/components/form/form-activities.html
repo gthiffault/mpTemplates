@@ -1,23 +1,17 @@
 	<h2 data-title="Écrivez-nous" class="c-data c-color-two">Écrivez-nous</h2>
 	<div class="invalid-form-error-message"></div>
-    
 	<form id="o-form" method="post" class="o-form -activities" action="" accept-charset="UTF-8" enctype="multipart/form-data">
     	{{ csrfInput() }}
-    	            <div class="c-success"></div>
-			<input id="post" type="hidden" name="message[Poste]" value="{{entry.title}}">
-		    <input id="from-name" type="hidden" name="fromName" value="">
-
-		    <label>{{"First name"|t}}</label>
-		    <input id="fname" type="text" data-parsley-error-message="{{ 'This field is required' | translate }}" value="" data-parsley-length="[1, 200]" data-parsley-group="block1" data-parsley-validate-if-empty>
-
-		    <label>{{"Last name"|t}}</label>
-		    <input id="lname" type="text" data-parsley-error-message="{{ 'This field is required' |translate }}" value="" data-parsley-length="[1, 200]" data-parsley-group="block1" data-parsley-validate-if-empty>
-
-		    <label for="from-email">{{"Email"|t}}</label>
-		    <input id="from-email" type="email" name="fromEmail" value="" data-parsley-length="[1, 200]" data-parsley-group="block1" data-parsley-validate-if-empty>
-
-		    <label for="phone">{{"Phone"|t}}</label>
-			<input id="phone" type="text" name="message[Phone]" data-parsley-error-message="{{ 'This field is required' |translate }}" value="" pattern="[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}" data-parsley-length="[1, 200]" data-parsley-group="block1" data-parsley-validate-if-empty>
-
-<div class="c-submit_wrap"><div class="c-submit c-btn c-btn--tertiary"><input id="submit" type="submit" value="{{'Submit'|t}}" class="c-btn_submit"></div></div>
-		</form>					
+	    <div class="c-success"></div>
+		<input id="post" type="hidden" name="message[Poste]" value="{{entry.title}}">
+	    <input id="from-name" type="hidden" name="fromName" value="">
+	    <label>{{"First name"|t}}</label>
+	    <input id="fname" type="text" data-parsley-error-message="{{ 'This field is required' | translate }}" value="" data-parsley-length="[1, 200]" data-parsley-group="block1" data-parsley-validate-if-empty>
+	    <label>{{"Last name"|t}}</label>
+	    <input id="lname" type="text" data-parsley-error-message="{{ 'This field is required' |translate }}" value="" data-parsley-length="[1, 200]" data-parsley-group="block1" data-parsley-validate-if-empty>
+	    <label for="from-email">{{"Email"|t}}</label>
+	    <input id="from-email" type="email" name="fromEmail" value="" data-parsley-length="[1, 200]" data-parsley-group="block1" data-parsley-validate-if-empty>
+	    <label for="phone">{{"Phone"|t}}</label>
+		<input id="phone" type="text" name="message[Phone]" data-parsley-error-message="{{ 'This field is required' |translate }}" value="" pattern="[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}" data-parsley-length="[1, 200]" data-parsley-group="block1" data-parsley-validate-if-empty>
+		<div class="c-submit_wrap"><div class="c-submit c-btn c-btn--tertiary"><input id="submit" type="submit" value="{{'Submit'|t}}" class="c-btn_submit"></div></div>
+	</form>					

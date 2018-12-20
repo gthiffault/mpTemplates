@@ -14,10 +14,17 @@
 					{# ASIGNATION #}
 						{% set tabOne = "partnersTab" %}
 						{% set image = block.partnersLogo.one().url() %}
+						{% set imageTitle = block.partnersLogo.one().title %}
 					{# CODE #}
 						{% if block.type == tabOne %}
 							<li>
-								<img src="{{ image }}">
+								{% if block.partnersWeb|length %}
+									<a href="{{block.partnersWeb}}" target="_blank" rel="external nofollow">
+								{% endif %}
+									<img src="{{ image }}" alt="{{imageTitle}}">
+								{% if block.partnersWeb|length %}
+									</a>
+								{% endif %}
 							</li>
 						{% endif %}
 				{% endfor %}

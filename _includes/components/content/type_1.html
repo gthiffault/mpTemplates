@@ -1,13 +1,17 @@
-
-
-
-{% if entry.content2Title and entry.content2Text %}
-<section class="o-section c-content">
-    <div class="o-wrapper">
-        <div class="o-wrap">
-            <h2 data-title="{{entry.content2Title}}" class="c-data c-color-two">{{entry.content2Title}}</h2>
-            {{entry.content2Text}}
-        </div>
-    </div>
-</section>    
-{% endif %}
+{# DECLARATION #}
+    {% set title    = "" %}
+    {% set content  = "" %} 
+{# ASIGNATION #}
+    {% set title    = entry.content2Title %}
+    {% set content  = entry.content2Text %}
+{# CODE #}
+    {% if title and content %}
+		<section class="o-section c-content">
+		    <div class="o-wrapper">
+		        <div class="o-wrap">
+		            <h2 data-title="{{title}}" class="c-data c-color-two">{{title}}</h2>
+		            {{content}}
+		        </div>
+		    </div>
+		</section>    
+	{% endif %}

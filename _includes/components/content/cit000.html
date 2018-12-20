@@ -1,16 +1,12 @@
-
 {# DECLARATION #}
-
 	{% set title = "" %}
 	{% set image = "" %}	
 	{% set content		= "" %}
 {# ASIGNATION #}
-
 	{% set title = entry.citTitle %}
 	{% set image = entry.citImage.one() %}
 	{% set content		= entry.citContent %}
 {# CODE #}
-
 	<section class="o-section c-img-txt">
 		<div class="o-wrapper">
 			<div class="o-wrap">
@@ -20,9 +16,8 @@
 					{{content}}
 				</div>					
 				<div class="c-img-txt_flex_item -image u-1/2@portrait-large-tablet">
-					<img src="{{image.url()}}">
+					<img src="{{image.url()}}" alt="{{image.title}}">
 				</div>
-
 			</div>
 		</div>
 	</section>

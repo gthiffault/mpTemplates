@@ -34,9 +34,9 @@
 							    {% nav entry in menuMain %}
 					        		
 					        			{% if entry.menuLink|length%}
-					            			<li {{macros.isActive(entry.slug)}}><a href="{{ entry.menuLink.getUrl() }}">{{ entry.title }}</a>
+					            			<li {{macros.isActive(entry.slug)}}><a data-link="{{entry.title}}" href="{{ entry.menuLink.getUrl() }}">{{ entry.title }}</a>
 					            		{% else %}
-					            			<li class="c-parent_li"><p class="c-parent">{{ entry.title }}</p>
+					            			<li class="c-parent_li"><p data-link="{{entry.title}}" class="c-parent">{{ entry.title }}</p>
 					            		{% endif %}
 					            		{% ifchildren %}
 					                		<ul class="c-submenu">
@@ -125,4 +125,3 @@
 		</div>
 	</header>
 
-<div id="my-store-1474943b-c6c2-2e92-ef4d-b81f355d60ce"></div><div> <script type="text/javascript" data-cfasync="false" src="https://app.ecwid.com/script.js?1474943b-c6c2-2e92-ef4d-b81f355d60ce" charset="utf-8"></script><script type="text/javascript"> xProductBrowser("id=my-store-1474943b-c6c2-2e92-ef4d-b81f355d60ce");</script></div>
