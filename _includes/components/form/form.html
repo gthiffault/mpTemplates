@@ -10,11 +10,11 @@
 				</div>
 			</div>
 		{% if entry.type == "availablePositions" %}	
-			<img class="c-form_img" src="{{global.formCareerImage.one().url()}}">
+			<img class="c-form_img" src="{{global.formCareerImage.one().url()}}" alt="global.formCareerImage.one()">
 		{% elseif entry.type == "contactUs" %}	
-			<img class="c-form_img" src="{{global.formContactImage.one().url()}}">
+			<img class="c-form_img" src="{{global.formContactImage.one().url()}}" alt="global.formContactImage.one()">
 		{% elseif entry.type == "activities" %}	
-			<img class="c-form_img" src="{{global.formContactImage.one().url()}}">			
+			<img class="c-form_img" src="{{global.formContactImage.one().url()}}" alt="global.formContactImage.one()">			
 		{% endif %}
 		</div>
 	</div>
