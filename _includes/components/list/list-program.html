@@ -15,9 +15,11 @@
 		        		<li class="o-layout__item u-1/3@landscape-medium-tablet">
 		        			
 		        			<figure>
+		        				<div>
 		        				<a href="{{entry.url}}">
 		        					<img src="{{image.url('homePS')}}" alt="{{image.title}}">
-		        				</a>	
+		        				</a>
+		        				</div>	
 		        				<figcaption>
 		        					{% if entry.programTitle|length %}
 			        					<a class="c-figcaption_link" href="{{entry.url}}"><h3>{{ entry.programTitle|raw }}</h3></a>
