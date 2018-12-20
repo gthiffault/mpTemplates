@@ -19,13 +19,12 @@
 
 		<html lang="{{craft.app.language}}">
 			<head>
+				{% hook 'seo' %}
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 				<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600|Open+Sans:400,400i,600,700" rel="stylesheet">
 				<link rel="stylesheet" href="{{ craft.app.sites.primarySite.baseUrl }}assets/css/app.css">
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			</head>
-<body id="barba-wrapper">
-				<style>.c-load-page {width: 100%;height: 100%;background: #FFF;
+<style>.c-load-page {width: 100%;height: 100%;background: #FFF;
 				position: fixed;z-index: 1001;top: 0;opacity: 1;}
 				.c-load-page-two {width: 100%;height: 100%;background: #fff;
 				position: fixed;z-index: 999;top: 0;}
@@ -109,6 +108,12 @@
 
 
 			</style>
+
+
+				
+			</head>
+<body id="barba-wrapper">
+				
 	<div class="c-load-page">
 
 	</div>
