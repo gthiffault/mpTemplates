@@ -13,16 +13,21 @@
 						{% set image = entry.imageThumbnail.one() %}
 					{# CODE #}
 		        		<li class="o-layout__item u-1/3@landscape-medium-tablet">
+		        			
 		        			<figure>
-		        				<img src="{{image.url('homePS')}}" alt="{{image.title}}">
+		        				<a class="c-bou" href="{{entry.url}}">
+		        					<img src="{{image.url('homePS')}}" alt="{{image.title}}">
+		        				</a>	
 		        				<figcaption>
 		        					{% if entry.programTitle|length %}
-			        					<a href="{{entry.url}}"><h3>{{ entry.programTitle|raw }}</h3></a>
+			        					<a class="c-figcaption_link" href="{{entry.url}}"><h3>{{ entry.programTitle|raw }}</h3></a>
 		        					{% else %}
-		        						<a href="{{entry.url}}"><h3>{{ entry.title }}</h3></a>
+		        						<a class="c-figcaption_link" href="{{entry.url}}"><h3>{{ entry.title }}</h3></a>
 		        					{% endif %}
 		            			</figcaption>
+		            		
 							</figure>
+
 		        		</li>
 	    		{% endnav %}
 			</ul>
