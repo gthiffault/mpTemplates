@@ -10,9 +10,8 @@
         <div class="c-success"></div>		
         <input type="hidden" name="action" value="contact-form/send">
     	{{ csrfInput() }}
-		<input id="post" type="hidden" name="message[Poste]" value="{{entry.title}}">
 		    <input id="from-name" type="hidden" name="fromName" value="">
-			<input id="subject" type="hidden" name="subject" value="Carriere">
+			<input id="subject" type="hidden" name="subject" value="Carrière">
 		    <label>{{"First name"|t}}</label>
 		    <input id="fname" type="text" data-parsley-error-message="{{ 'This field is required' | translate }}" value="" data-parsley-length="[1, 200]" data-parsley-group="block1" data-parsley-validate-if-empty>
 
@@ -24,6 +23,7 @@
 
 		    <label for="phone">{{"Phone"|t}}</label>
 			<input id="phone" type="text" name="message[Phone]" data-parsley-error-message="{{ 'This field is required' |translate }}" value="" pattern="[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}" data-parsley-length="[1, 200]" data-parsley-group="block1" data-parsley-validate-if-empty>
+		<input id="post" type="hidden" name="message[Poste]" value="{{entry.title}}">
 
 		    <label for="attachment">{{"Join your resume"|t}}</label>
 			<div class="c-file -cv">
