@@ -5,7 +5,7 @@
     {% set title    = entry.content1Title %}
     {% set content  = entry.content1Text %}
 {# CODE #}
-    {% if entry.content1Title or entry.content1Text %}
+    {% if title and content %}
         <section class="o-section c-content">
         	<div class="o-wrapper">
         		<div class="o-wrap">
