@@ -5,8 +5,7 @@
 	    		{{ csrfInput() }}
 	    		<input type="hidden" name="action" value="contact-form/send">
 	    <div class="c-success"></div>
-	    <input id="post" type="hidden" name="message[Activites]" value="Message">
-		<input id="post" type="hidden" name="message[Poste]" value="{{entry.title}}">
+		<input id="subject" type="hidden" name="subject" value="{{entry.title}}">
 		    <input id="from-name" type="hidden" name="fromName" value="">
 
 		    <label>{{"First name"|t}}</label>
