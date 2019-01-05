@@ -8,6 +8,7 @@
     
 	<form id="o-form" method="post" class="o-form -career" action="/" accept-charset="UTF-8" enctype="multipart/form-data">
         <div class="c-success"></div>		
+        <input type="hidden" name="action" value="contact-form/send">
     	{{ csrfInput() }}
 		<input id="post" type="hidden" name="message[Poste]" value="{{entry.title}}">
 		    <input id="from-name" type="hidden" name="fromName" value="">
