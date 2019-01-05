@@ -11,7 +11,7 @@
     	{{ csrfInput() }}
 		<input id="post" type="hidden" name="message[Poste]" value="{{entry.title}}">
 		    <input id="from-name" type="hidden" name="fromName" value="">
-
+			<input id="subject" type="hidden" name="subject" value="Carriere">
 		    <label>{{"First name"|t}}</label>
 		    <input id="fname" type="text" data-parsley-error-message="{{ 'This field is required' | translate }}" value="" data-parsley-length="[1, 200]" data-parsley-group="block1" data-parsley-validate-if-empty>
 
