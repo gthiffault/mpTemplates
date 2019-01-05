@@ -4,7 +4,8 @@
 	    		{{ csrfInput() }}
 	    		<input type="hidden" name="action" value="contact-form/send">
 	    <div class="c-success"></div>
-		<input id="subject" type="text" name="subject" value="Activité : {{entry.title}}">
+	    <input id="post" type="hidden" name="message[Activites]" value="{{entry.title}}">
+		<input id="subject" type="hidden" name="subject" value="{{entry.title}}">
 	    <input id="from-name" type="hidden" name="fromName" value="">
 	    <label>{{"First name"|t}}</label>
 	    <input id="fname" type="text" data-parsley-error-message="{{ 'This field is required' | translate }}" value="" data-parsley-length="[1, 200]" data-parsley-group="block1" data-parsley-validate-if-empty>

@@ -2,8 +2,10 @@
 	<div class="invalid-form-error-message"></div>
     
 	<form id="o-form" method="post" class="o-form -contact" action="/" accept-charset="UTF-8" enctype="multipart/form-data">
-    	{{ csrfInput() }}
-    	<div class="c-success"></div>
+	    		{{ csrfInput() }}
+	    		<input type="hidden" name="action" value="contact-form/send">
+	    <div class="c-success"></div>
+	    <input id="post" type="hidden" name="message[Activites]" value="Message">
 		<input id="post" type="hidden" name="message[Poste]" value="{{entry.title}}">
 		    <input id="from-name" type="hidden" name="fromName" value="">
 
