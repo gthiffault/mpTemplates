@@ -1,11 +1,4 @@
-	<h2 data-title="Postuler pour ce poste" class="c-data c-color-two">Postuler pour ce poste</h2>
-	<h3>En personne</h3>
-    {{global.globalAddress}}
-    <p>Téléphone : {{global.globalPhone}}
-    <br>Télécopieur : {{global.globalFax}}</p>				
-	<h3>En ligne</h3>
-	<div class="invalid-form-error-message"></div>
-    
+
 	<form id="o-form" method="post" enctype="multipart/form-data" class="o-form -career" action="/" accept-charset="UTF-8">
         <div class="c-success"></div>		
         <input type="hidden" name="action" value="contact-form/send">
@@ -20,10 +13,6 @@
 
 		    <label for="from-email">{{"Email"|t}}</label>
 		    <input id="from-email" type="email" name="fromEmail" value="" data-parsley-length="[1, 200]" data-parsley-group="block1" data-parsley-validate-if-empty>
-
-		    <label for="phone">{{"Phone"|t}}</label>
-			<input id="phone" type="text" name="message[Phone]" data-parsley-error-message="{{ 'This field is required' |translate }}" value="" pattern="[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}" data-parsley-length="[1, 200]" data-parsley-group="block1" data-parsley-validate-if-empty>
-		<input id="post" type="hidden" name="message[Poste]" value="{{entry.title}}">
 
 		    <label for="attachment">{{"Join your resume"|t}}</label>
 			<div class="c-file -cv">
@@ -72,7 +61,7 @@
 					<input type="file" name="attachment" id="chooseFile-letter" accept="application/pdf">
 					</div>
 
-					<input type="file" name="attachment">
+					<input type="file" name="attachment[]">
 			</div>
 			<p class="c-form-advert">Veuillez noter que nous communiquerons uniquement avec les personnes qui seront sélectionnées en entrevue. </p>
 <div class="c-submit_wrap"><div class="c-submit c-btn c-btn--tertiary"><input id="submit" type="submit" value="{{'Submit'|t}}" class="c-btn_submit"></div></div>
