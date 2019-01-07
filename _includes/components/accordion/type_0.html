@@ -42,7 +42,7 @@
 														{% set title = depthOne.accordionBlocAContent %}
 														{% set content = depthOne.accordionBlocABullet %}
 													{# CODE #}
-						        						<h4>{{title}}</h4>
+						        						{% if title|length %}<h4>{{title}}</h4>{% endif %}
 						        						<div class="c-content">
 						        							{{content}}
 						        						</div>
