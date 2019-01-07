@@ -6,7 +6,7 @@
 	<h3>En ligne</h3>
 	<div class="invalid-form-error-message"></div>
     
-	<form id="o-form" method="post" class="o-form -career" action="/" accept-charset="UTF-8" enctype="multipart/form-data">
+	<form id="o-form" method="post" enctype="multipart/form-data" class="o-form -career" action="/" accept-charset="UTF-8">
         <div class="c-success"></div>		
         <input type="hidden" name="action" value="contact-form/send">
     	{{ csrfInput() }}
@@ -71,6 +71,8 @@
 					</div>
 					<input type="file" name="attachment" id="chooseFile-letter" accept="application/pdf">
 					</div>
+
+					<input type="file" name="attachment">
 			</div>
 			<p class="c-form-advert">Veuillez noter que nous communiquerons uniquement avec les personnes qui seront sélectionnées en entrevue. </p>
 <div class="c-submit_wrap"><div class="c-submit c-btn c-btn--tertiary"><input id="submit" type="submit" value="{{'Submit'|t}}" class="c-btn_submit"></div></div>
