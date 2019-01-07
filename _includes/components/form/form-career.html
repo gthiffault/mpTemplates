@@ -14,6 +14,9 @@
 		    <label for="from-email">{{"Email"|t}}</label>
 		    <input id="from-email" type="email" name="fromEmail" value="" data-parsley-length="[1, 200]" data-parsley-group="block1" data-parsley-validate-if-empty>
 
+		    <label for="phone">{{"Phone"|t}}</label>
+			<input id="phone" type="text" name="message[Phone]" data-parsley-error-message="{{ 'This field is required' |translate }}" value="" pattern="[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}" data-parsley-length="[1, 200]" data-parsley-group="block1" data-parsley-validate-if-empty>
+
 		    <label for="attachment">{{"Join your resume"|t}}</label>
 			<div class="c-file -cv">
 				<div class="c-file-upload -cv">
