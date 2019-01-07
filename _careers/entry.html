@@ -1,5 +1,14 @@
 {% extends "_layout/site" %}
     {% block content %}
+<section class="o-section c-activities_single_info">
+	<div class="o-wrapper">
+		<div class="o-wrap">
+			<div class="c-activities_single_info_back">
+				<a href="{{global.careerPage.url()}}"><h4>Retour à carrière</h4></a>
+			</div>
+		</div>
+	</div>
+</section>    
 		{% include "_includes/components/list/jobs-single" %}
 		{% include "_includes/components/form/form" with {templateForm: 'form-career'} %}
     {% endblock %}
