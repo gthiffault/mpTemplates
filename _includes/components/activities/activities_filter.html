@@ -9,7 +9,7 @@
 		<p class="c-filter_title">Filtrer votre recherche</p>
 		<div class="c-activities_filter_select">
 			<select class="c-activities_select">
-				<option value="http://painchaud.test/activites">Catégorie</option>
+				<option value="{{global.activitiesLink.getUrl()}}">Catégorie</option>
 				{% for initiative in categoriesInUse %}
 					<option value="{{initiative.url()}}">{{ initiative.title }}</option>
 				{% endfor %}
