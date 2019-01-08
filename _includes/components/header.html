@@ -64,6 +64,8 @@
 					{% else %}		
 						{% if entry.bannerImage|length%}
 							<div class="c-header_banner_page" style="background: url('{{entry.bannerImage.one().url('bannerPage')}}')">
+						{% elseif entry.type == "activitesSingle" or entry.type == "activities" %}
+							<div class="c-header_banner_page" style="background: url('{{global.activitiesBanner.one().url('bannerPage')}}')">
 						{% else %}		
 							<div class="c-header_banner_page" style="background: url('{{global.defaultImage.one().url('bannerPage')}}')">
 						{% endif %}
