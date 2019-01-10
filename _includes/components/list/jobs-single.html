@@ -7,36 +7,44 @@
 	<div class="o-wrapper">
 		<div class="o-wrap">
 			<h1 data-title="{{entry.title}}" class="c-page_title c-data">{{entry.title}}</h1>
-			<div class="c-job-information_div">
-				<h3>Description du poste</h3>
-				<ul class="o-list-bare c-job-information_ul">
-				<li><span>Date d'entrée en fonction :</span> {{entry.jobDateEntry}}</li>
-				<li><span>Nombre de poste(s) à combler :</span> {{entry.jobNumberJobs}}</li>
-				<li><span>Salaire :</span> {{entry.jobSalary}}</li>
-				<li><span>Horaire de travail :</span> {{entry.jobWorTimetable}}</li>
-				<li><span>Statut de l'emploi :</span> {{entry.jobEmploymentStatus}}</li>
-				<li><span>Quart de travail :</span> {{entry.jobShift}}</li>
-				</ul>
-			</div>
-			<div class="c-job-information_div -content">						
-				<h3>Responsabilités</h3>
-				{{entry.jobResponsabilities}}
-			</div>
-			<div class="c-job-information_div">						
-				<h3>Exigences</h3>
-				<ul class="o-list-bare c-job-information_ul">
-				<li><span>Niveau d'études :</span> {{entry.jobLevelStudies}}</li>
-				<li><span>Diplôme :</span> {{entry.jobDiploma}}</li>
-				<li><span>Années d'expérience :</span> {{entry.jobYearsExperience}}</li>				
-				</ul>		
-				<div class="-content">
-				{{entry.jobRequirements}}
+			{% if entry.jobDateEntry|length or entry.jobNumberJobs|length or entry.jobNumberJobs|length or entry.jobSalary|length or entry.jobWorTimetable|length or entry.jobEmploymentStatus|length or entry.jobShift|length %}			
+				<div class="c-job-information_div">
+					<h3>Description du poste</h3>
+					<ul class="o-list-bare c-job-information_ul">
+					{% if entry.jobDateEntry|length %}<li><span>Date d'entrée en fonction :</span> {{entry.jobDateEntry}}</li>{% endif %}
+					{% if entry.jobNumberJobs|length %}<li><span>Nombre de poste(s) à combler :</span> {{entry.jobNumberJobs}}</li>{% endif %}
+					{% if entry.jobSalary|length %}<li><span>Salaire :</span> {{entry.jobSalary}}</li>{% endif %}
+					{% if entry.jobWorTimetable|length %}<li><span>Horaire de travail :</span> {{entry.jobWorTimetable}}</li>{% endif %}
+					{% if entry.jobEmploymentStatus|length %}<li><span>Statut de l'emploi :</span> {{entry.jobEmploymentStatus}}</li>{% endif %}
+					{% if entry.jobShift|length %}<li><span>Quart de travail :</span> {{entry.jobShift}}</li>{% endif %}
+					</ul>
 				</div>
-			</div>		
-			<div class="c-job-information_div -content">						
-				<h3>Autres renseignements</h3>
-				{{entry.jobSkillSought}}
-			</div>
+			{% endif %}			
+			{% if entry.jobResponsabilities|length %}
+				<div class="c-job-information_div -content">						
+					<h3>Responsabilités</h3>
+					{{entry.jobResponsabilities}}
+				</div>
+			{% endif %}
+			{% if entry.jobRequirements|length or entry.jobLevelStudies|length or entry.jobDiploma|length or entry.jobYearsExperience|length %}
+				<div class="c-job-information_div">						
+					<h3>Exigences</h3>
+					<ul class="o-list-bare c-job-information_ul">
+					<li><span>Niveau d'études :</span> {{entry.jobLevelStudies}}</li>
+					<li><span>Diplôme :</span> {{entry.jobDiploma}}</li>
+					<li><span>Années d'expérience :</span> {{entry.jobYearsExperience}}</li>				
+					</ul>		
+					<div class="-content">
+					{{entry.jobRequirements}}
+					</div>
+				</div>
+			{% endif %}					
+			{% if entry.jobSkillSought|length %}
+				<div class="c-job-information_div -content">						
+					<h3>Autres renseignements</h3>
+					{{entry.jobSkillSought}}
+				</div>
+			{% endif %}
 		</div>
 	</div>
 </section>
