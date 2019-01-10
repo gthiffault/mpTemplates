@@ -9,7 +9,7 @@
 			{% if entry.activitiesDate|length %}				
 			<div class="c-activities_single_div">
 				<h3>Date</h3>
-				<p>{{entry.activitiesDate|date('j F Y')}}, de {{entry.activitiesDate|date('H')}} h {{entry.activitiesDate|date('i')}}{% if entry.activitiesEnd|length %} à {{entry.activitiesEnd|date('H')}} h {{entry.activitiesEnd|date('i')}}{% endif %}
+				<p>{{entry.activitiesDate|date('j F Y')}}, {% if entry.activitiesEnd|length %}de{% else%}à{% endif %} {{entry.activitiesDate|date('H')}} h {{entry.activitiesDate|date('i')}}{% if entry.activitiesEnd|length %} à {{entry.activitiesEnd|date('H')}} h {{entry.activitiesEnd|date('i')}}{% endif %}
 				</div>
 			{% endif %}					
 			{% if entry.activitiesPlace|length %}				
