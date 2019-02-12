@@ -27,7 +27,11 @@
 				<div class="o-wrapper">
 					<div class="c-flex">
 						<div class="c-flex_item -logo">
-							<a href="{{siteUrl}}"><img class="c-header_nav_main_logo" src="{{logo}}" alt="Maison Painchaud"></a>
+							{%if entry.type != "home" %}
+								<a href="{{siteUrl}}">
+							{% endif %}	
+								<img class="c-header_nav_main_logo" src="{{logo}}" alt="Maison Painchaud">
+							{%if entry.type != "home" %}</a>{% endif %}	
 						</div>
 						<div class="c-flex_item -menu">
 							<ul class="o-list-bare c-header_nav_main_ul">
@@ -59,7 +63,7 @@
 		<div class="c-header_banner">
 			<div class="o-wrapper">
 				{%if entry is defined%}
-					{%if entry.type == "home"%}
+					{%if entry.type == "home" %}
 						<div class="c-header_banner_home" style="background: url('{{entry.bannerImage.one().url('bannerHome')}}')">
 					{% else %}		
 						{% if entry.bannerImage|length%}
